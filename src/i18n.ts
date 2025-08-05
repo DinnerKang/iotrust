@@ -9,6 +9,12 @@ const resources = {
       'home.bottomSheet.description': '서비스 설명',
       'home.bottomSheet.visit': '서비스 방문하기',
       'home.bottomSheet.close': '닫기',
+      'home.favorite.delete': '즐겨찾기 삭제',
+      'home.favorite.delete.contents': '이 사이트를 즐겨찾기 목록에서 삭제 하시겠습니까?',
+
+      // Modal
+      'modal.confirm': '확인',
+      'modal.cancel': '취소',
     }
   },
   en: {
@@ -18,6 +24,12 @@ const resources = {
       'home.bottomSheet.description': 'Service Description',
       'home.bottomSheet.visit': 'Visit Service',
       'home.bottomSheet.close': 'Close',
+      'home.favorite.delete': 'Delete Favorite',
+      'home.favorite.delete.contents': 'Are you sure you want to delete this site from your favorites?',
+      
+      // Modal
+      'modal.confirm': 'Confirm',
+      'modal.cancel': 'Cancel',
     }
   }
 };
