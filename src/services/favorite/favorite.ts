@@ -1,3 +1,4 @@
+import { getCurrentEnv } from '@/utils/env';
 import type { FavoriteItem } from './types';
 
 const mockData: FavoriteItem[] = [
@@ -22,9 +23,15 @@ const mockData: FavoriteItem[] = [
 ]
 
 export const fetchFavorite = async (): Promise<FavoriteItem[]> => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(mockData);
-        }, 1000);
-    });
+    const env = getCurrentEnv();
+    if (env === 'dev') {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(mockData);
+            }, 1000);
+        });
+    }
+
+    const data = await fetch(`${import.meta.env.VITE_API_URL}/banner`);
+    return data.json();
 }

@@ -1,4 +1,5 @@
 import type { SliderItem } from "./types";
+import { getCurrentEnv } from "@/utils/env";
 
 const mockData: SliderItem[] = [
     {
@@ -45,9 +46,14 @@ const mockData: SliderItem[] = [
 ]
 
 export const fetchBanner = async (): Promise<SliderItem[]> => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(mockData);
-        }, 1000);
-    });
+    const env = getCurrentEnv();
+    if (env === 'dev') {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(mockData);
+            }, 1000);
+        });
+    }
+    const data = await fetch(`${import.meta.env.VITE_API_URL}/banner`);
+    return data.json();
 }

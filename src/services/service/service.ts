@@ -1,3 +1,4 @@
+import { getCurrentEnv } from "@/utils/env";
 import type { ServiceItem } from "./types";
 
 const mockData: ServiceItem[] = [
@@ -84,9 +85,14 @@ const mockData: ServiceItem[] = [
 ]
 
 export const fetchService = async (): Promise<ServiceItem[]> => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(mockData);
-        }, 1000);
-    });
+    const env = getCurrentEnv();
+    if (env === 'dev') {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(mockData);
+            }, 1000);
+        });
+    }
+    const data = await fetch(`${import.meta.env.VITE_API_URL}/service`);
+    return data.json();
 }
