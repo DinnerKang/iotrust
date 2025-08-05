@@ -6,12 +6,18 @@ const resources = {
     translation: {
       'home.favorite': '즐겨찾기',
       'home.list': '목록',
+      'home.bottomSheet.description': '서비스 설명',
+      'home.bottomSheet.visit': '서비스 방문하기',
+      'home.bottomSheet.close': '닫기',
     }
   },
   en: {
     translation: {
       'home.favorite': 'Favorite',
       'home.list': 'List',
+      'home.bottomSheet.description': 'Service Description',
+      'home.bottomSheet.visit': 'Visit Service',
+      'home.bottomSheet.close': 'Close',
     }
   }
 };

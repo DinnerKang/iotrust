@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import { LanguageProvider } from './contexts/LanguageContext';
 import './i18n';
+import './styles/reset.css';
 
 function App() {
   return (

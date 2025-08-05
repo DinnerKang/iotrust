@@ -18,7 +18,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   const { i18n } = useTranslation();
   
   // 환경변수에서 언어 설정 가져오기
-  const currentLanguage = (import.meta.env.VITE_DEFAULT_LANGUAGE as Language) || 'ko';
+  const currentLanguage = (import.meta.env.VITE_LANGUAGE as Language) || 'ko';
 
   useEffect(() => {
     // 환경변수 기반으로 언어 설정

@@ -6,11 +6,11 @@ interface SliderProps {
     data: SliderData[]
 }
 
-const IMAGE_URL = 'https://raw.githubusercontent.com/KyungeunKim/iotrust-frontend-homework/main/images/';
+const baseUrl = import.meta.env.VITE_IMAGE_URL;
 const AUTO_SLIDE_INTERVAL = 8000; // 8초로 변경
 const SLIDE_SPEED = 300;
 
-export const Slider = ({ data }: SliderProps) => {
+const Slider = ({ data }: SliderProps) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const [animationStatus, setAnimationStatus] = useState<'prev' | 'next' | null>(null);
@@ -135,7 +135,7 @@ export const Slider = ({ data }: SliderProps) => {
                             }}
                         >
                             <img 
-                                src={`${IMAGE_URL}${item.img}`} 
+                                src={`${baseUrl}/${item.img}`} 
                                 alt={item.description || `슬라이드 ${index + 1}`}
                                 className={styles.slide_image}
                             />
