@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, memo } from 'react';
 import styles from './Slider.module.scss';
 import type { SliderData } from '@/services/banner';
 
@@ -57,7 +57,7 @@ const Slider = ({ data }: SliderProps) => {
         if (touchStartX.current !== null && touchEndX.current !== null) {
             const diff = touchStartX.current - touchEndX.current;
             if (Math.abs(diff) > 50) {
-                // 100px 이상 움직였을 때만 동작
+                // 50px 이상 움직였을 때만 동작
                 if (diff > 0) {
                     handleNext();
                 } else {
@@ -174,4 +174,4 @@ const Slider = ({ data }: SliderProps) => {
     );
 };
 
-export default Slider;
+export default memo(Slider);
