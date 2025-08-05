@@ -4,6 +4,7 @@ import { Slider } from '@/components/ui/Slider';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { fetchBanner, type SliderItem } from '@/services/banner';
 import { useTranslation } from 'react-i18next';
+import styles from './Home.module.scss';
 
 const Home = () => {
     const { t } = useTranslation();
@@ -28,7 +29,7 @@ const Home = () => {
   return (
     <Layout>
         <div style={{ padding: '20px' }}>
-            <section>
+            <section className={styles.banner_wrap}>
                 {
                     bannerData.length > 0 && (
                         <Slider data={sliderData} />

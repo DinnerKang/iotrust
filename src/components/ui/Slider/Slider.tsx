@@ -70,19 +70,19 @@ export const Slider = ({ data }: SliderProps) => {
     };
 
     // 자동 슬라이드 관리
-    // useEffect(() => {
-    //     if (!isHovered) {
-    //         autoSlideInterval.current = setInterval(() => {
-    //             handleNext();
-    //         }, AUTO_SLIDE_INTERVAL);
-    //     }
+    useEffect(() => {
+        if (!isHovered) {
+            autoSlideInterval.current = setInterval(() => {
+                handleNext();
+            }, AUTO_SLIDE_INTERVAL);
+        }
 
-    //     return () => {
-    //         if (autoSlideInterval.current) {
-    //             clearInterval(autoSlideInterval.current);
-    //         }
-    //     };
-    // }, [isHovered, handleNext]);
+        return () => {
+            if (autoSlideInterval.current) {
+                clearInterval(autoSlideInterval.current);
+            }
+        };
+    }, [isHovered, handleNext]);
 
     // 배너 클릭 처리
     const handleBannerClick = (item: SliderData) => {
